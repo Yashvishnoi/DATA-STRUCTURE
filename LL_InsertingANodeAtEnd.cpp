@@ -6,46 +6,40 @@ struct Node
 	int data;
 	Node* next;
 };
-//	Node* A;	
-	Node* head;
-	void Insert(int x)
+
+Node* head = NULL; 
+
+void Insert(int x)
 {
-	Node* Newnode=new Node;
-	Newnode->data=x;
-	Newnode->next=NULL;
-	if(head==NULL)
-	{
-		head=Newnode;
-	}
-	else
-	{
-		//Node*temp=head;
-		while(head->next!=NULL)
-		head=head->next;
-		head->next=Newnode;
-	}
-	
-	
+   Node* newnode = new Node;
+   newnode->data=x;
+   newnode->next=NULL;
+
+   if(head == NULL)
+   {
+        head=newnode;
+   }
+   else
+   {
+        Node* last=head;
+        while(last->next != NULL) last=last->next;
+        last->next = newnode;
+   }
 }
-//Node* A;	
+	
 void Print()
 {
-
-	Node* temp= head;
-	while(temp!=NULL)
-	{
-	
-		cout<<" "<<temp->data;
-		temp=temp->next;
-	}
-	
+	while (head != NULL) {
+        cout<<head->data<<"->";
+        head = head->next;
+    }
+    cout<<"NULL"<<endl;
 }
 
 
 
 int main()
 {
-	head=NULL;
 	int n,x,i;
 	cout<<"Enter the value how much node you want to enter"<<"\n";
 	cin>>n;
@@ -54,8 +48,7 @@ int main()
 		cout<<" Enter the number to be entered ";
 		cin>>x;
 		Insert(x);
-		//Print();
 	}
-Print();
-return 0;
+    Print();
+    return 0;
 }
