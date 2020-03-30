@@ -19,21 +19,31 @@ void Insert(int x)
 
 void Delete(int n)
 {
-	Node* temp1=head;
+	Node* temp=head;
+	Node* prev,*temp1;
+	int count=1;
+
 	if(n==1)
 	{
-		head=temp1->next;
-		delete (temp1);	
+		head=temp->next;
+		delete (temp);	
 		return;	
 	}
-	for(int i=0;i<n-2;i++)
+	else
 	{
-		temp1=temp1->next;
-		Node*temp2=temp1->next;
-		temp1->next=temp2->next;
-		delete (temp2);								
-		
-	}
+	 while(temp!=NULL)
+	 {
+	  if(count==n)
+	   {
+        temp1=prev->next;
+		prev->next=temp1->next;
+		delete (temp1);
+	   }
+	   prev=temp;
+	   temp=temp->next;
+	   count++; 	
+	  }
+	 }
 	
 }
 
