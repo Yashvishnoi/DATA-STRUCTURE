@@ -45,13 +45,34 @@ void print()
 	cout<<"\n";
 }
 
+void reversePrint()
+{
+	Node* temp=head;
+	if(temp==NULL)
+	return;
+	  //Going to last
+	while(temp->next!=NULL)
+		temp=temp->next;
+	//Traversing backward using prev pointer
+	cout<<"Reverse : ";
+	while(temp!=NULL)
+	{
+		cout<<temp->data;
+		temp=temp->prev;
+	}	
+	cout<<"\n";
+}
+
 int main()
 {
 	InsertAtHead(2);
 	print();
+	reversePrint();
 	InsertAtHead(4);
 	print();
+	reversePrint();
 	InsertAtHead(6);
 	print();
+	reversePrint();
 return 0;
 }
